@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import * as THREE from 'three'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, Stats } from '@react-three/drei'
 
 function Scene() {
     return (
@@ -12,9 +12,10 @@ function Scene() {
             }}
             dpr={[1, 2]}
         >
-            <Suspense fallback={<h1>loading...</h1>}>
+            <OrbitControls />
+            <Stats />
+            <Suspense fallback={null}>
                 <mesh>
-                    <OrbitControls />
                     <boxBufferGeometry />
                     <meshBasicMaterial color={new THREE.Color('deeppink')} />
                 </mesh>
